@@ -9,7 +9,9 @@ const App = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const searchMovies = async (title) => {
-        const response = await fetch (`${process.env.REACT_APP_API_URL}&s=${title}`);
+        const response = await fetch (`${process.env.REACT_APP_API_URL}&s=${title}`, {
+            mode: 'cors'
+        });
         const data = await response.json();
         setMovies(data.Search)
     }
